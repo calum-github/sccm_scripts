@@ -1,4 +1,4 @@
-#!/bin/expect
+#!/usr/bin/expect
 
 ## Calum Hunter
 ## 12-08-2014
