@@ -30,6 +30,14 @@ echo "Enrollment User Name: $enrolluser"
 # Get the Enrollment Server Address
 enrollserver=`defaults read $ccmpref EnrollmentServerName`
 echo "Enrollment Server Address: $enrollserver"
+
+# Get the last Check in time
+checkin=`defaults read $ccmpref OMALastConnectTime`
+echo "Last Check in Time: $checkin"
+
+# Get the Certificate Expiration date
+certexp=`defaults read $ccmpref CertExpDate`
+echo "Client Certificate Expiry Date: $certexp"
 }
 
 # Determine if we are enrolled
