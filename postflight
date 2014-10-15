@@ -1,0 +1,22 @@
+#!/bin/sh
+
+## Calum Hunter
+## DEC SCCM PoC Project
+## Version 0.1
+## 13/08/2014
+
+## Post flight script to install the packages
+## then run the enrollment scripts
+
+## Determine working directory
+install_dir=`dirname $0`
+
+## Install the packages
+/usr/sbin/installer -dumplog -verbose -pkg $install_dir/"CMClient.pkg" -target "$3"
+/usr/sbin/installer -dumplog -verbose -pkg $install_dir/"SCCM_Enrollment_Scripts.pkg" -target "$3"
+/usr/sbin/installer -dumplog -verbose -pkg $install_dir/"SCCM_Mac_Client_Tools.pkg" -target "$3"
+
+## Packages are installed so now run the enrollment script
+/tmp/sccm_enrollment.sh
+
+exit 0
